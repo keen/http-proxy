@@ -11,8 +11,8 @@ const SESSION_ID = process.env.SESSION_ID;
 const start = () => {
   const app = express();
 
-  if (!SESSION_ID || API_URL) {
-    throw new Error('Session identifier is required');
+  if (!SESSION_ID || !API_URL) {
+    throw new Error('Provide environment variables');
   }
 
   app.all('*', (req, res) => {
